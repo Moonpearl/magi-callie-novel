@@ -1,0 +1,71 @@
+/* @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|PT+Sans+Narrow:400,700'); */
+/* @import url('https://fonts.googleapis.com/css?family=Arimo'); */
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
+body {
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+    background: none;
+    color: lightgrey;
+    font-size: 1.2em;
+    line-height: 1.5em;
+    margin: 8em 1em;
+}
+
+h1, h2 {
+    margin: 1em 0;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+p {
+    margin: 1em 0;
+}
+
+/* span.c1,
+span.c2,
+span.c3,
+span.c4,
+span.c5,
+span.c6,
+span.c7,
+span.c8,
+span.c9 {
+    font-style: italic;
+} */
+
+blockquote {
+    max-width: 40em;
+    font-style: italic;
+    margin: 4em auto;
+}
+
+blockquote p:last-child {
+    text-align: right;
+    font-style: initial;
+}
+
+.date {
+    /* text-align: right; */
+    font-weight: bold;
+    max-width: 30em;
+    margin: 0 0 2em auto;
+    font-size: .8em;
+}
+
+.date p:first-child {
+    font-size: 1.25em;
+}
+
+.main {
+    margin-bottom: 6em;
+}
+
+.flashback {
+    font-style: italic;
+}
