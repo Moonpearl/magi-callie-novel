@@ -7,7 +7,19 @@ include dirname(__FILE__) . '/inc/classes/Database.php';
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 } else {
-    $id = 1;
+    if (isset($_COOKIE['last_chapter'])) {
+        $id = $_COOKIE['last_chapter'];
+    } else {
+        $id = 1;
+    }
+}
+
+// Remember how far the user has read
+if (!isset($_COOKIE['last_chapter']) || $id > $_COOKIE['last_chapter']) {
+    setcookie('last_chapter', $id);
+    $last_chapter = $id;
+} else if (isset($_COOKIE['last_chapter'])) {
+    $last_chapter = $_COOKIE['last_chapter'];
 }
 
 // Read chapter data

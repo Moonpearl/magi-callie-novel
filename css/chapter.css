@@ -1,13 +1,14 @@
-/* @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|PT+Sans+Narrow:400,700'); */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|PT+Sans+Narrow:400,700');
 /* @import url('https://fonts.googleapis.com/css?family=Arimo'); */
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+@import url('reset.css');
+@import url('common.css');
+@import url('buttons.css');
 
 body {
+    color: white;
     font-family: 'Source Sans Pro', Arial, sans-serif;
     background: none;
-    color: lightgrey;
-    font-size: 1.2em;
-    line-height: 1.5em;
     margin: 8em 1em;
 }
 
@@ -24,6 +25,9 @@ h2 {
 }
 
 p {
+    color: lightgrey;
+    font-size: 1.2em;
+    line-height: 1.5em;
     margin: 1em 0;
 }
 

@@ -1,30 +1,28 @@
 /* fonts */
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|PT+Sans+Narrow:400,700');
+@import url('reset.css');
+@import url('common.css');
+@import url('buttons.css');
 
 @font-face {
     font-family: "Morpheus";
     src: url("../fonts/MORPHEUS.ttf");
 }
 
-/* variables */
-
-:root {
-    --header-height: 2em;
-    --footer-height: 3em;
-    --chapter-height: 6em;
-    
-    --color-dark: #1B2631;
-    --color-mid: #5D6D7E;
-    --color-light: #D6DBDF;
-}
-
-
 /* general styles */
 
 body {
     /*background: midnightblue;*/
-    background: url('https://subwallpaper.com/Widescreen-Wallpapers/night-city-wallpaper-images-For-Widescreen-Wallpaper.jpg');
+    /* background: url('https://subwallpaper.com/Widescreen-Wallpapers/night-city-wallpaper-images-For-Widescreen-Wallpaper.jpg'); */
+    background:
+        radial-gradient(
+            rgba(51, 51, 102, .75),
+            rgba(12, 12, 25, .75)
+        ),
+        url('https://subwallpaper.com/Widescreen-Wallpapers/night-city-wallpaper-images-For-Widescreen-Wallpaper.jpg');
+
+
     fit: cover;
     color:white;
     font-family: 'PT Sans Narrow', sans-serif;
@@ -50,108 +48,6 @@ main {
     display: flex;
     flex-flow: column;
     justify-content: center;
-}
-
-
-/* nav bar and buttons */
-
-.buttonbar {
-    margin: 4em auto;
-    text-align: center;
-    font-size: 1em;
-    font-family: 'Open Sans', sans-serif;
-}
-
-.buttonbar li {
-    border-radius: .5em;
-    display: inline-block;
-    background: var(--color-dark);
-    /*font-size: .8em;
-    font-weight: bold;*/
-    padding: .5em 1em;
-}
-
-.iconbutton {
-    border-radius: 1em;
-    background: var(--color-dark);
-}
-
-header nav {
-    opacity: 1;
-    background: var(--color-dark);
-
-    font-size: calc(var(--header-height) / 2);
-    height: var(--header-height);
-    line-height: var(--header-height);
-}
-
-header nav li {
-    float: left;
-    padding: 0 1em;
-}
-
-header nav li,
-.buttonbar li,
-.iconbutton {
-    position: relative;
-    z-index: 10;
-    overflow-y: hidden;
-    transition: all .5s;
-}
-
-header nav a:not(.active) li:hover,
-.buttonbar li:hover,
-.iconbutton:hover {
-    color: black;
-    transition: all .5s;
-}
-
-header nav a:not(.active) li:after,
-.buttonbar li:after,
-.iconbutton:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    height: 100%;
-    background: var(--color-light); /* onhover background color */
-    z-index: -1;
-    transform: translate3D(0,100%,0); /* move elements above button so they don't appear initially */
-    transition: all .5s;
-}
-
-header nav a:not(.active) li:hover:after,
-.buttonbar li:hover:after,
-.iconbutton:hover:after {
-    transform: translate3D(0,0,0);
-    transition: all .5s;
-}
-
-.iconbutton.disabled,
-.iconbutton.disabled:hover {
-    color: #444;
-}
-
-.iconbutton.disabled:after,
-.iconbutton.disabled:hover:after {
-    background: transparent;
-}
-
-header nav .active li {
-    color: inherit;
-    background: var(--color-mid);
-}
-
-header .nav-name {
-    display: none;
-}
-
-@media (min-width: 500px) {
-    header .nav-name {
-        display: initial;
-    }    
 }
 
 
@@ -231,10 +127,11 @@ h1 {
     /* line-height: 1.5em; */
     /* margin: 1em 0; */
     /* height: calc(100% - 2em); */
-    /* overflow: auto; */
-    display: grid;
+    overflow: auto;
+    /* display: grid; */
     /* flex-direction: column; */
-    grid-template-rows: var(--chapter-height) calc(100vh - var(--footer-height) - var(--header-height) - var(--chapter-height));
+    /* grid-template-rows: var(--chapter-height) calc(100vh - var(--footer-height) - var(--header-height) - var(--chapter-height)); */
+    height: calc(100vh - var(--footer-height) - var(--header-height) - var(--chapter-height));
 }
 
 /* .novel blockquote {
@@ -252,3 +149,51 @@ h1 {
     text-align: right;
 }
  */
+
+.category {
+    color: black;
+    background: var(--color-mid);
+    padding: .5em 1em;
+    font-size: 1.5em;
+    font-family: 'Open Sans', serif;
+    border: 1px;
+    border-style: solid;
+    border-top-color: black;
+    border-bottom-color: black;
+    margin-top: 1em;
+}
+
+.cards {
+    overflow: auto;
+}
+
+.gallery {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    /* overflow: auto; */
+    margin: 0 auto;
+}
+
+.card {
+    /* width: 100%;
+    height: 100%; */
+    width: 8em;
+    height: 12em;
+    border-radius: .5em;
+    border: 1px solid black;
+    background: var(--color-dark);
+    padding: .5em;
+    margin: .5em .25em;
+    /* overflow: hidden; */
+}
+
+.card img {
+    width: 100%;
+    height: 50%;
+    background: grey;
+}
+
+.card .title {
+    margin: .25em 0;
+}

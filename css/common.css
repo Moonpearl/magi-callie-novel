@@ -1,0 +1,11 @@
+/* variables */
+
+:root {
+    --header-height: 2em;
+    --footer-height: 3em;
+    --chapter-height: 6em;
+    
+    --color-dark: #1B2631;
+    --color-mid: #5D6D7E;
+    --color-light: #D6DBDF;
+}

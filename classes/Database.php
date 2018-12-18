@@ -1,10 +1,8 @@
 <?php
 
-date_default_timezone_set('Europe/Paris');
-
-include 'MidgardDate.php';
-include 'NavItem.php';
-include 'Chapter.php';
+// include 'MidgardDate.php';
+require_once 'NavItem.php';
+require_once 'Chapter.php';
 
 class Database {
     private $pdo;
@@ -74,5 +72,3 @@ class Database {
         return $stmt->fetch()['TABLE_ROWS'];
     }
 }
-
-$database = new Database();

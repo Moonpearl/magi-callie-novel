@@ -1,5 +1,7 @@
 <?php
 
+date_default_timezone_set('Europe/Paris');
+
 class MidgardDate {
     const GREGORIAN_NAME_MONTH = [
         'January',

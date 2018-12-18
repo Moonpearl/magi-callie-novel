@@ -1,0 +1,113 @@
+.buttonbar {
+    margin: 4em auto;
+    text-align: center;
+    font-size: 1em;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.buttonbar li {
+    border-radius: .5em;
+    display: inline-block;
+    background: var(--color-dark);
+    /*font-size: .8em;
+    font-weight: bold;*/
+    padding: .5em 1em;
+}
+
+.iconbutton {
+    border-radius: 1em;
+    background: var(--color-dark);
+}
+
+header nav {
+    opacity: 1;
+    background: var(--color-dark);
+
+    font-size: calc(var(--header-height) / 2);
+    height: var(--header-height);
+    line-height: var(--header-height);
+}
+
+header nav li {
+    float: left;
+    padding: 0 1em;
+}
+
+header nav li,
+.buttonbar li,
+.iconbutton,
+.card {    
+    position: relative;
+    z-index: 10;
+    overflow-y: hidden;
+    transition: all .5s;
+}
+
+header nav a:not(.active) li:hover,
+.buttonbar li:hover,
+.iconbutton:hover,
+.card:hover {
+    color: black;
+    transition: all .5s;
+}
+
+header nav a:not(.active) li:after,
+.buttonbar li:after,
+.iconbutton:after,
+.card:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    background: var(--color-light); /* onhover background color */
+    z-index: -1;
+    transform: translate3D(0,100%,0); /* move elements above button so they don't appear initially */
+    transition: all .5s;
+}
+
+header nav a:not(.active) li:hover:after,
+.buttonbar li:hover:after,
+.iconbutton:hover:after,
+.card:hover:after {
+    transform: translate3D(0,0,0);
+    transition: all .5s;
+}
+
+.iconbutton.disabled,
+.iconbutton.disabled:hover {
+    color: #444;
+}
+
+.buttonbar li.disabled,
+.buttonbar li.disabled:hover,
+.card:disabled,
+.card:disabled:hover {
+    color: grey;
+}
+
+.iconbutton.disabled:after,
+.iconbutton.disabled:hover:after,
+.buttonbar li.disabled:after,
+.buttonbar li.disabled:hover:after,
+.card:disabled:hover,
+.card:disabled:hover:after {
+    background: transparent;
+}
+
+header nav .active li {
+    color: inherit;
+    background: var(--color-mid);
+}
+
+header .nav-name {
+    display: none;
+}
+
+@media (min-width: 500px) {
+    header .nav-name {
+        display: initial;
+    }    
+}
