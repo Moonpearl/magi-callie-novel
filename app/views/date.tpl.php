@@ -1,4 +1,11 @@
 <!-- start calendar page  -->
+        <?php
+
+        if ( isset($data['date']) ) {
+            $date = $data['date'];
+        }
+        ?>
+
         <div class="title" >
             <h1>Calculate your birthday</h1>
             <?php if (isset($date)): ?>
@@ -8,7 +15,7 @@
                 <p>Please enter your date of birth:
             <?php endif; ?>
 
-                <form>
+                <form action="<?= $_SERVER['BASE_URI'] ?>/calculate_date">
                     <label for="month">Month</label>
                     <input id="month" name="month" list="months" required />
                     <label for="day">Day</label>

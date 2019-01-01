@@ -7,7 +7,7 @@
 
         <div class="chapter">
             <?php if ($id > 1): ?>
-            <a href="chapter/<?= $id - 1 ?>" alt="Previous chapter">
+            <a href="<?= get_url('chapter/' . ($id - 1) ) ?>" alt="Previous chapter">
                 <i class="iconbutton fas fa-arrow-alt-circle-left"></i>
             </a>
             <?php else: ?>
@@ -17,7 +17,7 @@
             <h1><?= $chapter->title ?></h1>
             
             <?php if ($id < $last_chapter): ?>
-            <a href="chapter/<?= $id + 1 ?>" alt="Next chapter">
+            <a href="<?= get_url('chapter/' . ($id + 1) ) ?>" alt="Next chapter">
                 <i class="iconbutton fas fa-arrow-alt-circle-right"></i>
             </a>
             <?php else: ?>
@@ -57,7 +57,7 @@
         ?>
 
             <ul class="buttonbar">
-                <a id="next-chapter" href="<?= dirname(__FILE__) ?>/chapter/<?= $id + 1 ?>" alt="Next chapter">
+                <a id="next-chapter" href="<?= get_url('chapter/' . ($id + 1) ) ?>" alt="Next chapter">
                 <li>
                     Next chapter <i class="fas fa-arrow-alt-circle-right"></i>
                 </li>

@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Controller.php';
+load_class('controllers/Controller');
 
 class ErrorController extends Controller {
     

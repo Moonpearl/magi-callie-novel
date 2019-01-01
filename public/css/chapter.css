@@ -1,30 +1,30 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|PT+Sans+Narrow:400,700');
 /* @import url('https://fonts.googleapis.com/css?family=Arimo'); */
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+/* @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 @import url('reset.css');
 @import url('common.css');
-@import url('buttons.css');
+@import url('buttons.css'); */
 
-body {
+.novel {
     color: white;
     font-family: 'Source Sans Pro', Arial, sans-serif;
     background: none;
-    margin: 8em 1em;
+    padding: 8em 0; /* 1em;*/
 }
 
-h1, h2 {
+.novel h1, h2 {
     margin: 1em 0;
 }
 
-h1 {
+.novel h1 {
     font-size: 2em;
 }
 
-h2 {
+.novel h2 {
     font-size: 1.5em;
 }
 
-p {
+.novel p {
     color: lightgrey;
     font-size: 1.2em;
     line-height: 1.5em;
@@ -43,18 +43,18 @@ span.c9 {
     font-style: italic;
 } */
 
-blockquote {
+.novel blockquote {
     max-width: 40em;
     font-style: italic;
     margin: 4em auto;
 }
 
-blockquote p:last-child {
+.novel blockquote p:last-child {
     text-align: right;
     font-style: initial;
 }
 
-.date {
+.novel .date {
     /* text-align: right; */
     font-weight: bold;
     max-width: 30em;
@@ -62,14 +62,14 @@ blockquote p:last-child {
     font-size: .8em;
 }
 
-.date p:first-child {
+.novel .date p:first-child {
     font-size: 1.25em;
 }
 
-.main {
+.novel .main {
     margin-bottom: 6em;
 }
 
-.flashback {
+.novel .flashback {
     font-style: italic;
 }

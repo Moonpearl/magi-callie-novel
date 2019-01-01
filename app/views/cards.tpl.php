@@ -2,7 +2,7 @@
         <div class="cards">
             <h2 class="category">Characters</h2>
             <section class="gallery">
-                <a class="card" href="#">
+                <a class="card" href="<?= $_SERVER['BASE_URI'] ?>/cards/1">
                     <img>
                     <div class="title">
                         Callie
@@ -11,34 +11,7 @@
                         Beautiful description of the beautiful card associated with Callie.
                     </div>
                 </a>
-                <div class="card">
-                    <img>
-                    <div class="title">
-                        Callie
-                    </div>
-                    <div class="description">
-                        Beautiful description with a different size.
-                    </div>
-                </div>
-                <div class="card">
-                    <img>
-                    <div class="title">
-                        Callie
-                    </div>
-                    <div class="description">
-                        Beautiful description with yet another different size.
-                    </div>
-                </div>
-                <div class="card">
-                    <img>
-                    <div class="title">
-                        Valhalla Academy
-                    </div>
-                    <div class="description">
-                        Beautiful description that is so long that it barely fits inside the card and it looks lame.
-                    </div>
-                </div>
-                <div class="card">
+                <a class="card" href="<?= $_SERVER['BASE_URI'] ?>/cards/1">
                     <img>
                     <div class="title">
                         Callie
@@ -46,8 +19,8 @@
                     <div class="description">
                         Beautiful description of the beautiful card associated with Callie.
                     </div>
-                </div>
-                <div class="card">
+                </a>
+                <a class="card" href="<?= $_SERVER['BASE_URI'] ?>/cards/1">
                     <img>
                     <div class="title">
                         Callie
@@ -55,8 +28,8 @@
                     <div class="description">
                         Beautiful description of the beautiful card associated with Callie.
                     </div>
-                </div>
-                <div class="card">
+                </a>
+                <a class="card" href="<?= $_SERVER['BASE_URI'] ?>/cards/1">
                     <img>
                     <div class="title">
                         Callie
@@ -64,8 +37,8 @@
                     <div class="description">
                         Beautiful description of the beautiful card associated with Callie.
                     </div>
-                </div>
-                <div class="card">
+                </a>
+                <a class="card" href="<?= $_SERVER['BASE_URI'] ?>/cards/1">
                     <img>
                     <div class="title">
                         Callie
@@ -73,8 +46,8 @@
                     <div class="description">
                         Beautiful description of the beautiful card associated with Callie.
                     </div>
-                </div>
-                <div class="card">
+                </a>
+                <a class="card" href="<?= $_SERVER['BASE_URI'] ?>/cards/1">
                     <img>
                     <div class="title">
                         Callie
@@ -82,8 +55,8 @@
                     <div class="description">
                         Beautiful description of the beautiful card associated with Callie.
                     </div>
-                </div>
-                <div class="card">
+                </a>
+                <a class="card" href="<?= $_SERVER['BASE_URI'] ?>/cards/1">
                     <img>
                     <div class="title">
                         Callie
@@ -91,8 +64,8 @@
                     <div class="description">
                         Beautiful description of the beautiful card associated with Callie.
                     </div>
-                </div>
-                <div class="card">
+                </a>
+                <a class="card" href="<?= $_SERVER['BASE_URI'] ?>/cards/1">
                     <img>
                     <div class="title">
                         Callie
@@ -100,8 +73,8 @@
                     <div class="description">
                         Beautiful description of the beautiful card associated with Callie.
                     </div>
-                </div>
-                <div class="card">
+                </a>
+                <a class="card" href="<?= $_SERVER['BASE_URI'] ?>/cards/1">
                     <img>
                     <div class="title">
                         Callie
@@ -109,16 +82,8 @@
                     <div class="description">
                         Beautiful description of the beautiful card associated with Callie.
                     </div>
-                </div>
-                <div class="card">
-                    <img>
-                    <div class="title">
-                        Callie
-                    </div>
-                    <div class="description">
-                        Beautiful description of the beautiful card associated with Callie.
-                    </div>
-                </div>
+                </a>
+
             </section>
             <h2 class="category">Places</h2>
             <section class="gallery">

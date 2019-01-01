@@ -3,10 +3,10 @@
 
         <div class="title" >
             <h1>Welcome to Midgård</h1>
-            <p>Today is <a href="date.php"><span class="date"><?= $date->display(); ?></a></span></p>
+            <p>Today is <a href="<?= get_url('date') ?>"><span class="date"><?= $date->display(); ?></a></span></p>
         </div>
         <ul class="buttonbar">
-            <a href="chapter" alt="Start reading">
+            <a href="<?= get_url('chapter') ?>" alt="Start reading">
             <li>
                 <?php if (isset($_COOKIE['last_chapter'])): ?>
                 Resume reading

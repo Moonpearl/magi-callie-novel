@@ -1,11 +1,14 @@
+# Allow access to folder
+Allow from all
+
+# Enable URL rewriting
 RewriteEngine On
 
-# Every URL that doesn't point to an existing file or folder
+# Dynamically setup base URI
+RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
+RewriteRule ^(.*) - [E=BASE_URI:%1]
+
+# Redirect every URL that doesn't point to an existing file/folder to index.php
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-
-# URL in the form of /pagename/id
-RewriteRule ^(\w+)/(\d+)/?$ index.php?page=/$1&id=$2 [L]
-
-# URL in the form of /pagename
-RewriteRule ^(\w+)/?$ index.php?page=/$1 [L]
+RewriteRule ^(.*)$ index.php?_url=/$1 [QSA,L]

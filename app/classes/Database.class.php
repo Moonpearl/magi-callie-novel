@@ -1,8 +1,11 @@
 <?php
 
 // include 'MidgardDate.php';
-require_once 'NavItem.php';
-require_once 'Chapter.php';
+// require_once __DIR__ . '/NavItem.class.php';
+// require_once __DIR__ . '/Chapter.php';
+
+load_class('NavItem');
+load_class('Chapter');
 
 class Database {
     private $pdo;
@@ -58,8 +61,7 @@ class Database {
             WHERE id = ' . $id
         );
 
-        $data = $stmt->fetch();
-        return new Chapter($data['title'], $data['serial']);
+        return $stmt->fetch();
     }
 
     public function readChaptersAmount() {

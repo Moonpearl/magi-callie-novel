@@ -1,3 +1,14 @@
+<?php
+
+include __DIR__ . '/inc/func.php';
+
+test();
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
