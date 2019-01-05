@@ -1,11 +1,4 @@
 <!-- start calendar page  -->
-        <?php
-
-        if ( isset($data['date']) ) {
-            $date = $data['date'];
-        }
-        ?>
-
         <div class="title" >
             <h1>Calculate your birthday</h1>
             <?php if (isset($date)): ?>
