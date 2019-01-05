@@ -16,7 +16,7 @@
     <header>
         <nav>
             <ul>
-                <?php foreach ( NavItem::readAll() as $item ): ?>
+                <?php foreach ( NavItem::fetchAll() as $item ): ?>
                 <a <?php if ( $item->matches_current_url() ) echo 'class="active"' ?>
                     href="<?= $item->full_url() ?>" alt="<?= $item->caption ?>">
                     <li>

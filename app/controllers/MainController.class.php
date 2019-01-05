@@ -33,7 +33,7 @@ class MainController extends Controller {
     $data['id'] = $id;
 
     // Load chapter from id
-    $data['chapter'] = Chapter::readId($id);
+    $data['chapter'] = Chapter::fetchById($id);
 
     // Render page
     $this->render('chapter', $data);

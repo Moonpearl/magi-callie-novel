@@ -6,7 +6,7 @@ class Chapter extends Model {
   public $title;
   public $serial;
 
-  function getURL() {
+  private function getURL() {
     return 'https://docs.google.com/document/d/e/2PACX-' . $this->serial . '/pub?embedded=true';
   }
 

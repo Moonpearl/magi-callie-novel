@@ -5,7 +5,7 @@ class Model {
 
   public $id;
 
-  static public function readAll() {
+  static public function fetchAll() {
     $class_name = get_called_class();
 
     return Database::queryAsObject(
@@ -14,12 +14,25 @@ class Model {
     );
   }
 
-  static public function readId($id) {
+  static public function fetchById($id) {
     $class_name = get_called_class();
 
     return Database::queryAsObject(
       $class_name::buildQuery([
         'where' => ['id', $id]
+      ]),
+      $class_name
+    )[0];
+  }
+
+  static public function fetchMostRecent($number) {
+    $class_name = get_called_class();
+
+    return Database::queryAsObject(
+      $class_name::buildQuery([
+        'order_by' => 'date',
+        'order_asc' => false,
+        'limit' => $number
       ]),
       $class_name
     )[0];
@@ -46,11 +59,11 @@ class Model {
 
     // Process FROM statement
     if (isset($options['from'])) {
-      $from = $options['from'];
+      $table = $options['from'];
     } else {
-      $from = $class_name::TABLE_NAME;
+      $table = $class_name::TABLE_NAME;
     }
-    array_push($result, 'FROM `' . $from . '`');
+    array_push($result, 'FROM `' . $table . '`');
 
     // Process WHERE statement
     if (isset($options['where'])) {
@@ -76,6 +89,11 @@ class Model {
       $order = 'ASC';
     }
     array_push($result, 'ORDER BY `' . $order_by . '` ' . $order);
+
+    // Process LIMIT statement
+    if (isset($options['limit'])) {
+      array_push($result, 'LIMIT ' . $options['limit']);
+    }
 
     $result = join(PHP_EOL, $result);
 
