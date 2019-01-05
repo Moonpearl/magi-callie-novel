@@ -23,11 +23,17 @@
             <?= $chapter->getContents() ?>
 
             <ul class="buttonbar">
+                <?php if ($id < Chapter::amount()): ?>
                 <a id="next-chapter" href="<?= $router->generate('chapter', ['lang' => $lang, 'id' => ($id + 1)] ) ?>" alt="Next chapter">
                 <li>
                     Next chapter <i class="fas fa-arrow-alt-circle-right"></i>
                 </li>
                 </a>
+                <?php else: ?>
+                <li class="disabled">
+                    To be continued...
+                </li>
+                <?php endif; ?>
             </ul>
         </div>
 <!-- end chapter page -->

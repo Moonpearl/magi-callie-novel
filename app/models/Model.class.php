@@ -6,6 +6,18 @@ class Model {
 
   public $id;
 
+  static public function amount() {
+    $class_name = get_called_class();
+
+    $stmt = Database::query('
+        SELECT
+          COUNT(*)
+        FROM `' . $class_name::TABLE_NAME . '`
+    ');
+
+    return $stmt->fetch()['COUNT(*)'];
+  }
+
   static public function fetchAll($columns = null) {
     $class_name = get_called_class();
 

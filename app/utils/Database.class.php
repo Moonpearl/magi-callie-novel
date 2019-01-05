@@ -5,19 +5,11 @@ final class Database {
 
   private static $pdo;
 
-  public static function Current() {
-    if (isset(self::$instance)) {
-      return self::$instance;
-    }
-    self::$instance = new Database(self::$name);
-    return self::$instance;
-  }
-
   public static function setName($value) {
     self::$name = $value;
   }
 
-  private static function query($query) {
+  public static function query($query) {
     $pdo = self::getPDO();
     $stmt = $pdo->query($query);
     return $stmt;
@@ -64,39 +56,5 @@ final class Database {
       throw new \PDOException($e->getMessage(), (int)$e->getCode());
     }
     return $pdo;
-  }
-
-  private function readNavItems() {
-      $this->navItems = [];
-
-      $stmt = $this->pdo->query('
-          SELECT *
-          FROM nav_items
-          ORDER BY id ASC
-      ');
-
-      while ($row = $stmt->fetch()) {
-          array_push($this->navItems, new NavItem($row['caption'], $row['icon'], $row['url']));
-      }
-  }
-
-  public function readChapter($id) {
-      $stmt = $this->pdo->query('
-          SELECT *
-          FROM chapters
-          WHERE id = ' . $id
-      );
-
-      return $stmt->fetch();
-  }
-
-  public function readChaptersAmount() {
-      $stmt = $this->pdo->query('
-          SELECT TABLE_ROWS
-          FROM information_schema.TABLES
-          WHERE table_name = \'chapters\'
-      ');
-
-      return $stmt->fetch()['TABLE_ROWS'];
   }
 }
