@@ -8,6 +8,11 @@ class MainController extends Controller {
     $this->render('home', $data);
   }
 
+  public function backHome($data) {
+    global $router;
+    header('Location: ' . $router->generate('home', ['lang' => Language::first()->code]) );
+  }
+
   public function chapter($data) {
     // Process chapter number
     if ( isset($data['id']) ) {
@@ -24,36 +29,44 @@ class MainController extends Controller {
 
     // Remember how far the user has read
     if ( !isset($_COOKIE['last_chapter']) || $id > $_COOKIE['last_chapter'] ) {
-        setcookie('last_chapter', $id);
-        $data['last_chapter'] = $id;
+      setcookie('last_chapter', $id);
+      $data['last_chapter'] = $id;
     } else if ( isset($_COOKIE['last_chapter']) ) {
-        $data['last_chapter'] = $_COOKIE['last_chapter'];
+      $data['last_chapter'] = $_COOKIE['last_chapter'];
     }
 
     $data['id'] = $id;
 
     // Load chapter from id
-    $data['chapter'] = Chapter::fetchById($id);
+    $chapter = Chapter::fetchById($id, ['id', 'title', 'serial']);
+
+    $data['title'] = 'Read chapter ' . $id . ' - ' . $chapter->title;
+
+    $data['chapter'] = $chapter;
 
     // Render page
     $this->render('chapter', $data);
   }
 
   public function calculateDate($data) {
+    global $router;
+
     // Convert form input to timestamp
-    $location = '/date';
     if ( isset($_GET['month']) && isset($_GET['day']) ) {
-        $time = mktime(0, 0, 0, array_search($_GET['month'], MidgardDate::GREGORIAN_NAME_MONTH) + 1, $_GET['day']);
-        $location .= '/' . $time;
+      $time = mktime(0, 0, 0, array_search($_GET['month'], MidgardDate::GREGORIAN_NAME_MONTH) + 1, $_GET['day']);
+      // Redirect to calendar page
+      header('Location: ' . $router->generate('date', ['lang' => $data['lang'], 'date' => $time]) );
     }
-    // Redirect to calendar page
-    header('Location: ' . $_SERVER['BASE_URI'] . $location);
+
   }
 
   public function date($data) {
+    $data['title'] = "Calculate your birthday";
+
     // If date was given as parameter, create new date from it
     if (isset($data['date'])) {
-        $data['date'] = new MidgardDate($data['date']);
+      $data['date'] = new MidgardDate($data['date']);
+      $data['title'] = "You were born on " . $data['date']->display();
     }
 
     // Render page
@@ -62,9 +75,9 @@ class MainController extends Controller {
 
   public function cards($data) {
     if ( isset($data['id']) ) {
-        $pagename = 'card_details';
+      $pagename = 'card_details';
     } else {
-        $pagename = 'cards';
+      $pagename = 'cards';
     }
 
     // Render page

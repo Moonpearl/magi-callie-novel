@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 05, 2019 at 03:26 PM
+-- Generation Time: Jan 05, 2019 at 06:16 PM
 -- Server version: 5.7.11
 -- PHP Version: 5.6.18
 
@@ -28,7 +28,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `chapter` (
   `id` int(10) UNSIGNED NOT NULL,
-  `title` tinytext NOT NULL,
+  `title_en` tinytext NOT NULL,
+  `title_fr` tinytext NOT NULL,
   `serial` tinytext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -36,13 +37,13 @@ CREATE TABLE `chapter` (
 -- Dumping data for table `chapter`
 --
 
-INSERT INTO `chapter` (`id`, `title`, `serial`) VALUES
-(1, 'Prologue', '1vSLNpedNvS5wXY0E7RsU67xltaQr_C9b1B7EJq0hX6zEVVBCyfAOhqTG3EuJeXqqkfuKMRqgxgC5Fev'),
-(2, 'Reach for the star', '1vSCBRPEi6JYPUH9kuKlw8qrFxGJIHhWRSoFN2VmAbvHefrkw8D9gepiDQMc8UCcUki1ATziApu05wG6'),
-(3, 'Misfortune telling', '1vSJzubr4_K0grtjMN4V-uF4-16CMKvZ5bw9ztNqGGCmvn7-PAu0suuO67m8IoctD4RWcxUtrGunN9os'),
-(4, 'Mortals help us', '1vQI11qHaKPKT3O8JHBjHb9Xm2uRDz3xj9Xt8O4eV86MWAdqlMOOnFzUpqVx862inZbNdr4Dq94YlJQC'),
-(5, 'Let the magic not work', '1vRYjI3e89uoI2E5w-MkGBnn5sK7nAsi1JIfdpQ3l79_V44W6Ta51OZNGs4ff6w8XROjbTrewMHWFEy0'),
-(6, 'Let\'s celebrate too soon', '1vQIMZgP7RE8M1q0A0ieWPhcHs23SsGYXoExIXO_M-EbiwoeOS-dLWW2kAz01D4h0vhMkgkosVbjZ2El');
+INSERT INTO `chapter` (`id`, `title_en`, `title_fr`, `serial`) VALUES
+(1, 'Prologue', 'Prologue', '1vSLNpedNvS5wXY0E7RsU67xltaQr_C9b1B7EJq0hX6zEVVBCyfAOhqTG3EuJeXqqkfuKMRqgxgC5Fev'),
+(2, 'Reach for the star', 'Viser l\'étoile', '1vSCBRPEi6JYPUH9kuKlw8qrFxGJIHhWRSoFN2VmAbvHefrkw8D9gepiDQMc8UCcUki1ATziApu05wG6'),
+(3, 'Misfortune telling', 'Le diseur de mauvaise aventure', '1vSJzubr4_K0grtjMN4V-uF4-16CMKvZ5bw9ztNqGGCmvn7-PAu0suuO67m8IoctD4RWcxUtrGunN9os'),
+(4, 'Mortals help us', 'Que les mortels nous viennent en aide', '1vQI11qHaKPKT3O8JHBjHb9Xm2uRDz3xj9Xt8O4eV86MWAdqlMOOnFzUpqVx862inZbNdr4Dq94YlJQC'),
+(5, 'Let the magic not work', 'Laissons la magie ne pas opérer', '1vRYjI3e89uoI2E5w-MkGBnn5sK7nAsi1JIfdpQ3l79_V44W6Ta51OZNGs4ff6w8XROjbTrewMHWFEy0'),
+(6, 'Let\'s celebrate too soon', 'Crions victoire trop tôt', '1vQIMZgP7RE8M1q0A0ieWPhcHs23SsGYXoExIXO_M-EbiwoeOS-dLWW2kAz01D4h0vhMkgkosVbjZ2El');
 
 -- --------------------------------------------------------
 
@@ -52,7 +53,8 @@ INSERT INTO `chapter` (`id`, `title`, `serial`) VALUES
 
 CREATE TABLE `nav_item` (
   `id` int(10) UNSIGNED NOT NULL,
-  `caption` tinytext NOT NULL,
+  `caption_en` tinytext NOT NULL,
+  `caption_fr` tinytext NOT NULL,
   `icon` tinytext NOT NULL,
   `url` tinytext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -61,12 +63,12 @@ CREATE TABLE `nav_item` (
 -- Dumping data for table `nav_item`
 --
 
-INSERT INTO `nav_item` (`id`, `caption`, `icon`, `url`) VALUES
-(1, 'Home', 'fas fa-home', ''),
-(2, 'Read', 'fas fa-book-open', 'chapter'),
-(3, 'Calendar', 'far fa-calendar-alt', 'date'),
-(4, 'Encyclopedia', 'fas fa-globe-americas', 'cards'),
-(5, 'Contact', 'fas fa-file-signature', '#');
+INSERT INTO `nav_item` (`id`, `caption_en`, `caption_fr`, `icon`, `url`) VALUES
+(1, 'Home', 'Accueil', 'fas fa-home', 'home'),
+(2, 'Read', 'Lire', 'fas fa-book-open', 'chapter'),
+(3, 'Calendar', 'Calendrier', 'far fa-calendar-alt', 'date'),
+(4, 'Encyclopedia', 'Encyclopédie', 'fas fa-globe-americas', 'cards'),
+(5, 'Contact', 'Contact', 'fas fa-file-signature', 'contact');
 
 --
 -- Indexes for dumped tables

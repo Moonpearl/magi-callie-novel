@@ -2,6 +2,7 @@
 
 class Chapter extends Model {
   const TABLE_NAME = 'chapter';
+  const MULTILINGUAL_COLUMNS = ['title'];
 
   public $title;
   public $serial;

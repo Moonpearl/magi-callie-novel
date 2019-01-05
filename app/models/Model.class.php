@@ -1,24 +1,28 @@
 <?php
 
 class Model {
-  const TABLE_NAME = 'pouet';
+  const TABLE_NAME = null;
+  const MULTILINGUAL_COLUMNS = [];
 
   public $id;
 
-  static public function fetchAll() {
-    $class_name = get_called_class();
-
-    return Database::queryAsObject(
-      $class_name::buildQuery(),
-      $class_name
-    );
-  }
-
-  static public function fetchById($id) {
+  static public function fetchAll($columns = null) {
     $class_name = get_called_class();
 
     return Database::queryAsObject(
       $class_name::buildQuery([
+        'select' => $columns
+      ]),
+      $class_name
+    );
+  }
+
+  static public function fetchById($id, $columns = null) {
+    $class_name = get_called_class();
+
+    return Database::queryAsObject(
+      $class_name::buildQuery([
+        'select' => $columns,
         'where' => ['id', $id]
       ]),
       $class_name
@@ -46,9 +50,18 @@ class Model {
     if (isset($options['select'])) {
       if (is_array($options['select'])) {
         array_push($result, 'SELECT');
+
+        $select = [];
         foreach ($options['select'] as $name) {
-          array_push($result, '`' . $name . '`');
+          if (in_array($name, $class_name::MULTILINGUAL_COLUMNS)) {
+            array_push($select, '`' . $name . '_' . Language::$current->code . '` AS `' . $name . '`');
+          } else {
+            array_push($select, '`' . $name . '`');
+          }
         }
+
+        array_push($result, join(',' . PHP_EOL, $select));
+
       } else {
         array_push($result, 'SELECT ' . $options['select']);
       }

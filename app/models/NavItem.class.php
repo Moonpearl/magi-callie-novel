@@ -2,6 +2,7 @@
 
 class NavItem extends Model {
   const TABLE_NAME = 'nav_item';
+  const MULTILINGUAL_COLUMNS = ['caption'];
 
   public $caption;
   public $icon;

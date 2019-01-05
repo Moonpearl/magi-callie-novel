@@ -8,7 +8,7 @@
                 <p>Please enter your date of birth:
             <?php endif; ?>
 
-                <form action="<?= $_SERVER['BASE_URI'] ?>/calculate_date">
+                <form action="<?= $router->generate('calculate_date', ['lang' => $lang]) ?>">
                     <label for="month">Month</label>
                     <input id="month" name="month" list="months" required />
                     <label for="day">Day</label>

@@ -10,6 +10,11 @@ class Controller {
       $$name = $value;
     }
 
+    // Pass default title if it is mssing
+    if (!isset($title)) {
+      $title = DEFAULT_TITLE;
+    }
+
     // Render each template
     include Path::view('header');
     include Path::view($pagename);
